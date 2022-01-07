@@ -16,5 +16,9 @@ public class PainelTabuleiro extends JPanel {
 		
 		tabuleiro.paraCadaCampo(c -> add(new BotaoCampo(c)));
 		
+		tabuleiro.registrarObservador(e -> {
+			//TODO Mostrar resultado ao usuario
+		});
+		
 	}
 }
