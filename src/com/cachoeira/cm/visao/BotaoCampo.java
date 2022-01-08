@@ -52,20 +52,30 @@ public class BotaoCampo extends JButton
 	}
 
 	private void aplicarEstiloPadrao() {
-		
+		setBackground(BG_PADRAO);
+		setText("");
 	}
 
 	private void aplicarEstiloExplodir() {
-		
+		setBackground(BG_EXPLODIR);
+		setText("X");
 	}
 
 	private void aplicarEstiloMarcar() {
-		
+		setBackground(BG_MARCAR);
+		setText("M");
 	}
 
 	private void aplicarEstiloAbrir() {
-		setBackground(BG_PADRAO);
+		
 		setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		
+		if(campo.isMinado()) {
+			setBackground(BG_EXPLODIR);
+			return;
+		}
+		
+		setBackground(BG_PADRAO);
 		
 		switch (campo.minasNaVizinhanca()) {
 		case 1: 
