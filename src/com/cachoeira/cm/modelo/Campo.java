@@ -125,10 +125,15 @@ public class Campo {
 		return (int) vizinhos.stream().filter(v -> v.minado).count();
 	}
 	
+	public int marcadosNaVizinhanca( ) {
+		return (int) vizinhos.stream().filter(v -> v.marcado).count();
+	}
+	
 	void reiniciar() {
 		aberto = false;
 		minado = false;
 		marcado = false;
+		notificarObservadores(CampoEvento.REINICIAR);
 	}
 
 	public boolean isMinado() {

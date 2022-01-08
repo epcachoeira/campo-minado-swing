@@ -13,7 +13,8 @@ public class TelaPrincipal extends JFrame {
 		
 		add(new PainelTabuleiro(tabuleiro));
 		
-		setTitle("Campo Minado");
+		setTitle("Campo Minado               Número Minas = " 
+				+ tabuleiro.getMinas());
 		setSize(690, 438);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

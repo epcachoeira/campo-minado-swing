@@ -49,20 +49,29 @@ public class BotaoCampo extends JButton
 		default:
 			aplicarEstiloPadrao();
 		}
+		
+		// Opcional - Garante que o botão será sempre atualizado
+//		SwingUtilities.invokeLater(() -> {
+//			repaint();
+//			validate();
+//		});
 	}
 
 	private void aplicarEstiloPadrao() {
 		setBackground(BG_PADRAO);
+		setBorder(BorderFactory.createBevelBorder(0));
 		setText("");
 	}
 
 	private void aplicarEstiloExplodir() {
 		setBackground(BG_EXPLODIR);
+		setForeground(Color.WHITE);
 		setText("X");
 	}
 
 	private void aplicarEstiloMarcar() {
 		setBackground(BG_MARCAR);
+		setForeground(Color.BLACK);
 		setText("M");
 	}
 

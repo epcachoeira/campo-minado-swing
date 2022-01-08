@@ -2,7 +2,9 @@ package com.cachoeira.cm.visao;
 
 import java.awt.GridLayout;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import com.cachoeira.cm.modelo.Tabuleiro;
 
@@ -10,15 +12,22 @@ import com.cachoeira.cm.modelo.Tabuleiro;
 public class PainelTabuleiro extends JPanel {
 
 	public PainelTabuleiro(Tabuleiro tabuleiro) {
-		
-		setLayout(new GridLayout(
-				tabuleiro.getLinhas(), tabuleiro.getColunas()));
-		
+
+		setLayout(new GridLayout(tabuleiro.getLinhas(), tabuleiro.getColunas()));
+
 		tabuleiro.paraCadaCampo(c -> add(new BotaoCampo(c)));
-		
+
 		tabuleiro.registrarObservador(e -> {
-			//TODO Mostrar resultado ao usuario
+			SwingUtilities.invokeLater(() -> {
+				if (e.isGanhou()) {
+					JOptionPane.showMessageDialog(this, "Você ganhou :)");
+				} else {
+					JOptionPane.showMessageDialog(this, "Você perdeu :(");
+				}
+				
+				tabuleiro.reiniciar();
+			});
 		});
-		
+
 	}
 }

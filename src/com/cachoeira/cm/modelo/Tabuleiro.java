@@ -42,8 +42,10 @@ public class Tabuleiro implements CampoObservador {
 	}
 
 	public void alternarMarcacao(int linha, int coluna) {
-		campos.stream().filter(c -> c.getLinha() == linha && c.getColuna() == coluna).findFirst()
-				.ifPresent(c -> c.alternarMarcacao());
+		campos.stream()
+			.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+			.findFirst()
+			.ifPresent(c -> c.alternarMarcacao());
 	}
 
 	private void gerarCampos() {
@@ -90,6 +92,10 @@ public class Tabuleiro implements CampoObservador {
 
 	public int getColunas() {
 		return colunas;
+	}
+
+	public int getMinas() {
+		return minas;
 	}
 
 	@Override
